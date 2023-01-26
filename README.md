@@ -19,8 +19,8 @@ I am a huge foodie and also a fan of a food program called _MasterChef_. Therefo
 - As a user, I want to be able to select a city and view some recommended restaurants in it (restaurant name along with type of food, cost level, and address)
 - As a user, I want to be able to view some popular dishes in it when I click into the name of a restaurant
 - As a user, I want to be able to click into the names of those dishes and have a look at their pictures (probably also showing ingredients)
-- As a user, I want to be able to add a restaurant to my "Favourite" collection from the page showing recommended dishes
-- As a user, I want to be able to select a restaurant in my "Favorite" collection and go to its page showing recommended dishes
+- As a user, I want to be able to add a restaurant to my "Favourite" collection from the page showing popular dishes
+- As a user, I want to be able to select a restaurant in my "Favorite" collection and go to its page showing popular dishes
 - As a user, I want to be able to remove a restaurant from my "Favourite" collection
 
 
