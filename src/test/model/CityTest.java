@@ -16,10 +16,10 @@ class CityTest {
     @BeforeEach
     public void runBefore() {
         c1 = new City("Vancouver");
-        r1 = new Restaurant("KFC", "Selling original fried chicken", "Vancouver");
-        r2 = new Restaurant("Piazza Hut", "Selling delicious piazzas", "Vancouver");
-        r3 = new Restaurant("Burger King", "Good taste of Burgers", "Vancouver");
-        r4 = new Restaurant("Corner UBC", "cheap food for broken UBC students", "Vancouver");
+        r1 = new Restaurant("KFC", "Vancouver");
+        r2 = new Restaurant("Piazza Hut", "Vancouver");
+        r3 = new Restaurant("Burger King", "Vancouver");
+        r4 = new Restaurant("Corner UBC", "Vancouver");
     }
 
     @Test
