@@ -48,7 +48,6 @@ public class FeedMeApp {
     }
 
 
-    //TODO: also need to deal with the collection branch
     private void executeInstruction(String instruction) {
         if (instruction.equals("b")) {
             chooseCity();
@@ -100,10 +99,11 @@ public class FeedMeApp {
         for (Restaurant restaurant : collection.getListRestaurant()) {
             if (restaurant.getName().equals(rn)) {
                 collection.removeRestaurant(restaurant);
-                for (Restaurant r : collection.getListRestaurant()) {
-                    System.out.println(r.getName());
-                    return;
-                }
+//                for (Restaurant r : collection.getListRestaurant()) {
+//                    System.out.println(r.getName());
+//                    return;
+//                }
+                return;
             }
         }
 
@@ -134,10 +134,130 @@ public class FeedMeApp {
         } else if (instruction.equals("l")) {
             chooseLondonRestaurant();
         } else if (instruction.equals("n")) {
-            System.out.println("New York city!");
+            chooseNewYorkRestaurant();
         }
     }
 
+    //TODO
+    private void chooseNewYorkRestaurant() {
+        displayNewYorkRestaurant();
+        String instruction = input.next();
+        instruction = instruction.toLowerCase();
+
+        while (!(instruction.equals("b")
+                || instruction.equals("o")
+                || instruction.equals("k")
+                || instruction.equals("r"))) {
+            displayNewYorkRestaurant();
+            instruction = input.next();
+            instruction = instruction.toLowerCase();
+        }
+
+        if (instruction.equals("b")) {
+            showBoucherieDetail();
+        } else if (instruction.equals("o")) {
+            showOlioDetail();
+        } else if (instruction.equals("k")) {
+            showRicoDetail();
+        } else {
+            showRoyalDetail();
+        }
+    }
+
+    private void showRoyalDetail() {
+        System.out.println("Royal 35 Steakhouse is a stone’s throw away from iconic New York City "
+                + "landmark, The Empire State Building, combining the vibrant energy of New York City "
+                + "with an authentic steakhouse setting in Midtown. \nFine dining Steakhouse featuring "
+                + "Prime USDA steaks & seafood, plus martinis & wine, presented in a warm, sophisticated setting."
+                + "\nPopular dishes: Dry Aged Porterhouse, Seafood Tower, Chillean Sea Bass Fish");
+
+        System.out.println("\nDo you want to add Royal 35 Steakhouse into collection?");
+        System.out.println("\ty -> add to collection");
+        System.out.println("\tn -> not add to collection");
+
+        String finalDesign = input.next();
+        if (finalDesign.equals("y")) {
+            collection.addRestaurant(nr4);
+            System.out.println("Added successfully!");
+        } else if (finalDesign.equals("n")) {
+            System.out.println("Check some others later!");
+        } else {
+            showRoyalDetail();
+        }
+    }
+
+    private void showRicoDetail() {
+        System.out.println("At K. Rico, the butchering and Dry-Aging of the steaks is done in-house, and our "
+                + "cuts are displayed right there at the table before guests place their orders, \nresulting "
+                + "in a very unique and memorable New York City dining experience."
+                + "\nPopular dishes: Roasted Oysters, Fufu de Chorizo, Ceviche de Corvina");
+
+        System.out.println("\nDo you want to add K Rico Steakhouse into collection?");
+        System.out.println("\ty -> add to collection");
+        System.out.println("\tn -> not add to collection");
+
+        String finalDesign = input.next();
+        if (finalDesign.equals("y")) {
+            collection.addRestaurant(nr3);
+            System.out.println("Added successfully!");
+        } else if (finalDesign.equals("n")) {
+            System.out.println("Check some others later!");
+        } else {
+            showRicoDetail();
+        }
+    }
+
+    private void showOlioDetail() {
+        System.out.println("An authentic trattoria, the restaurant specializes in classic Italian "
+                + "preparations, with a focus on house-made pastas "
+                + "\nand thin-crust Neapolitan-style pizza, as well as time-honored favorites "
+                + "such as caprese salad, fritto misto, and tiramisu."
+                + "\nPopular dishes: Italian Wedding Soup, Tortellini Di Vitello, Tilefish Arrosto");
+
+        System.out.println("\nDo you want to add Olio e Piu into collection?");
+        System.out.println("\ty -> add to collection");
+        System.out.println("\tn -> not add to collection");
+
+        String finalDesign = input.next();
+        if (finalDesign.equals("y")) {
+            collection.addRestaurant(nr2);
+            System.out.println("Added successfully!");
+        } else if (finalDesign.equals("n")) {
+            System.out.println("Check some others later!");
+        } else {
+            showOlioDetail();
+        }
+    }
+
+    private void showBoucherieDetail() {
+        System.out.println("BOUCHERIE is a traditional French brasserie and steakhouse, celebrating Joie de "
+                + "Vivre in the heart of West Village. \nThe restaurant prepares a menu of French classics and "
+                + "timeless bistro favorites, in addition to the dry-aged steaks. "
+                + "\nAn absinthe-inspired bar offers classic drinks, signature cocktails and craft beers."
+                + "\nPopular dishes: Lobster Bisque, Boeuf Bourguignon, Cupid");
+
+        System.out.println("\nDo you want to add Boucherie West Village into collection?");
+        System.out.println("\ty -> add to collection");
+        System.out.println("\tn -> not add to collection");
+
+        String finalDesign = input.next();
+        if (finalDesign.equals("y")) {
+            collection.addRestaurant(nr1);
+            System.out.println("Added successfully!");
+        } else if (finalDesign.equals("n")) {
+            System.out.println("Check some others later!");
+        } else {
+            showBoucherieDetail();
+        }
+    }
+
+    private void displayNewYorkRestaurant() {
+        System.out.println("\nHere are some hot restaurants, pick one to check more details!");
+        System.out.println("b -> Boucherie West Village");
+        System.out.println("o -> Olio e Piu");
+        System.out.println("k -> K Rico Steakhouse");
+        System.out.println("r -> Royal 35 Steakhouse");
+    }
 
     private void chooseLondonRestaurant() {
         displayLondonRestaurant();
@@ -446,12 +566,12 @@ public class FeedMeApp {
         london.plusRestaurant(lr4);
     }
 
-    // TODO: go back to add real restaurants
+
     private void initNewYork() {
-        nr1 = new Restaurant("nr name1", "New York City");
-        nr2 = new Restaurant("nr name2", "New York City");
-        nr3 = new Restaurant("nr name3", "New York City");
-        nr4 = new Restaurant("nr name4", "New York City");
+        nr1 = new Restaurant("Boucherie West Village", "New York City");
+        nr2 = new Restaurant("Olio e Piu", "New York City");
+        nr3 = new Restaurant("K Rico Steakhouse", "New York City");
+        nr4 = new Restaurant("Royal 35 Steakhouse", "New York City");
 
         City newYorkCity = new City("New York City");
         newYorkCity.plusRestaurant(nr1);
