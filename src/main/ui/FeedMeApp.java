@@ -53,12 +53,69 @@ public class FeedMeApp {
         if (instruction.equals("b")) {
             chooseCity();
         } else {
-            System.out.println("yes");
+            visitCollection();
         }
     }
 
 
-    //TODO: finishing other two cities
+    private void visitCollection() {
+        if (collection.getListRestaurant().size() == 0) {
+            System.out.println("Your collection is empty for now.");
+        } else {
+            for (Restaurant restaurant : collection.getListRestaurant()) {
+                System.out.println(restaurant.getName());
+            }
+
+            changeCollection();
+
+        }
+    }
+
+    private void changeCollection() {
+        displayChoice();
+        String decision = input.next();
+        decision = decision.toLowerCase();
+
+        if (decision.equals("y")) {
+            deleteRestaurant();
+        } else if (decision.equals("n")) {
+            System.out.println("Going back to the main menu!");
+        } else {
+            changeCollection();
+        }
+    }
+
+
+    //todo: i don't know where the problem is
+    private void deleteRestaurant() {
+        processDelete();
+    }
+
+    private void processDelete() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Type out the restaurant name below in order to delete that restaurant " +
+                "from your collection");
+        System.out.print("Restaurant Name: ");
+        String rn = input.nextLine();     // the order of this line with the line above cannot be changed
+        for (Restaurant restaurant : collection.getListRestaurant()) {
+            if (restaurant.getName().equals(rn)) {
+                collection.removeRestaurant(restaurant);
+                for(Restaurant r : collection.getListRestaurant())
+                System.out.println(r.getName());
+                return;
+            }
+        }
+
+    }
+
+
+    private void displayChoice() {
+        System.out.println("\nDo you want to modify your collection?");
+        System.out.println("\ty -> yes, I want to change my collection");
+        System.out.println("\tn -> no, everything is all good");
+    }
+
+    //TODO: finishing one other cities
     private void chooseCity() {
 
         displayCity();
@@ -76,12 +133,11 @@ public class FeedMeApp {
         } else if (instruction.equals("l")) {
             chooseLondonRestaurant();
         } else if (instruction.equals("n")) {
-            System.out.println("New York!");
+            System.out.println("New York city!");
         }
     }
 
 
-    //TODO: FINISH OTHER FOUR RESTAURANTS
     private void chooseLondonRestaurant() {
         displayLondonRestaurant();
         String instruction = input.next();
@@ -103,10 +159,32 @@ public class FeedMeApp {
         } else if (instruction.equals("g")) {
             showAndyDetail();
         } else {
-            //showIndianRoomDetail();
-            System.out.println("please");
+            showIndianRoomDetail();
         }
     }
+
+    private void showIndianRoomDetail() {
+        System.out.println("A modern, glass-fronted Indian on the burgeoning strip between The Bedford pub " +
+                "and Balham High Road, \nIndian Room has found itself something of a haven for couples. " +
+                "Well worth trying are the handful of dishes unique to this popular local restaurant, " +
+                "\na wonderful apricot chicken Kashmir among them." +
+                "\nPopular dishes: Goan Seafood Curry, Mumbai Fish Curry, Zinga Methi");
+
+        System.out.println("\nDo you want to add Indian room into collection?");
+        System.out.println("\ty -> add to collection");
+        System.out.println("\tn -> not add to collection");
+
+        String finalDesign = input.next();
+        if (finalDesign.equals("y")) {
+            collection.addRestaurant(lr4);
+            System.out.println("Added successfully!");
+        } else if (finalDesign.equals("n")) {
+            System.out.println("Check some others later!");
+        } else {
+            showIndianRoomDetail();
+        }
+    }
+
 
     private void showAndyDetail() {
         System.out.println("Andy's Taverna restaurant in a corner of London that could be reasonably nicknamed " +
@@ -114,7 +192,7 @@ public class FeedMeApp {
                 "islands. " +
                 "This long-established restaurant is famous for its warm staff, \npocket-friendly prices and " +
                 "generous portions. Sea bass and sea bream are " +
-                "flown in daily from Greece.  " + "\nPopular dishes: Lamp, Mossaka");
+                "flown in daily from Greece." + "\nPopular dishes: Lamp, Mossaka");
 
         System.out.println("\nDo you want to add Andy’s Greek Taverna into collection?");
         System.out.println("\ty -> add to collection");
@@ -136,7 +214,7 @@ public class FeedMeApp {
         System.out.println("Located at the heart of Camden, offering delicious Greek and Mediterranean Cuisine, " +
                 "cooked on original charcoal grill. \nFor private, group and special " +
                 "occasions. Enjoy the surroundings of our indoor garden or a spot of lunch on " +
-                "the outside terrace. " + "\nPopular dishes: Alexander's Kebab, Sheftalia, House Mixed Grill");
+                "the outside terrace." + "\nPopular dishes: Alexander's Kebab, Sheftalia, House Mixed Grill");
 
         System.out.println("\nDo you want to add Alexander The Great into collection?");
         System.out.println("\ty -> add to collection");
@@ -157,7 +235,7 @@ public class FeedMeApp {
         System.out.println("Nestled in the quaint residential streets of Kensington, Launceston Place is an award " +
                 "winning hidden gem. Open for lunch Wednesday to Sunday and dinner Wednesday to Sunday, " +
                 "\nLaunceston Place attracts a loyal local following, as well as being a fantastic destination " +
-                "for visitors to this charming London neighbourhood. " + "\nPopular dishes: Pork, Cheese Cart, Cod");
+                "for visitors to this charming London neighbourhood." + "\nPopular dishes: Pork, Cheese Cart, Cod");
 
         System.out.println("\nDo you want to add Launceston Place into collection?");
         System.out.println("\ty -> add to collection");
@@ -213,7 +291,8 @@ public class FeedMeApp {
                 "Granville Island in beautiful Vancouver, BC." + "\nWe have assembled an amazing " +
                 "team of kitchen and " +
                 "service staff and are excited to have the opportunity to be at " +
-                "your service while presenting a fresh take on seafood in Vancouver.");
+                "your service while presenting a fresh take on seafood in Vancouver."
+                + "\nPopular dishes: Fresh Oysters, Tomahawk, Brant Lake Wagyu, Tuna Poke Bowl");
 
         System.out.println("\nDo you want to add The Vancouver Fish Company into collection?");
         System.out.println("\ty -> add to collection");
@@ -238,7 +317,8 @@ public class FeedMeApp {
                 "offers spectacular views of the Vancouver Harbour, North Shore Mountains and Canada Place. " +
                 "\nThe culmination of more than fifteen years of experience serving our communities, " +
                 "Chop offers handcrafted cuisine, signature cocktails, and enlightened hospitality. " +
-                "\nEnjoyed by guests at 16 locations across Canada. ");
+                "\nEnjoyed by guests at 16 locations across Canada."
+                + "\nPopular dishes: Chili Garlic Shrimp, Prime Rib, Centre Cut New York");
 
         System.out.println("\nDo you want to add Chop Steakhouse $ Bar - Coal Harbour into collection?");
         System.out.println("\ty -> add to collection");
@@ -254,7 +334,7 @@ public class FeedMeApp {
             showSteakhouseDetail();
         }
     }
-    
+
     private void showAnnaLenaDetail() {
         System.out.println("AnnaLena is a Tasting Menu focused restaurant located steps from Kitsilano Beach " +
                 "and a short walk from Downtown Vancouver, British Columbia." + "\nWe offer a set menu that can " +
@@ -276,7 +356,6 @@ public class FeedMeApp {
             showAnnaLenaDetail();
         }
     }
-
 
 
     private void showMikuDetail() {
@@ -313,7 +392,7 @@ public class FeedMeApp {
         System.out.println("\nChoose one city from:");
         System.out.println("v -> Vancouver");
         System.out.println("l -> London");
-        System.out.println("n -> New York");
+        System.out.println("n -> New York City");
     }
 
     // EFFECTS: displays menu of options to user
@@ -363,16 +442,16 @@ public class FeedMeApp {
 
     // TODO: go back to add real restaurants
     private void initNewYork() {
-        nr1 = new Restaurant("nr name1", "New York");
-        nr2 = new Restaurant("nr name2", "New York");
-        nr3 = new Restaurant("nr name3", "New York");
-        nr4 = new Restaurant("nr name4", "New York");
+        nr1 = new Restaurant("nr name1", "New York City");
+        nr2 = new Restaurant("nr name2", "New York City");
+        nr3 = new Restaurant("nr name3", "New York City");
+        nr4 = new Restaurant("nr name4", "New York City");
 
-        City newYork = new City("New York");
-        newYork.plusRestaurant(nr1);
-        newYork.plusRestaurant(nr2);
-        newYork.plusRestaurant(nr3);
-        newYork.plusRestaurant(nr4);
+        City newYorkCity = new City("New York City");
+        newYorkCity.plusRestaurant(nr1);
+        newYorkCity.plusRestaurant(nr2);
+        newYorkCity.plusRestaurant(nr3);
+        newYorkCity.plusRestaurant(nr4);
     }
 
 
