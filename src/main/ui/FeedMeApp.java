@@ -563,12 +563,6 @@ public class FeedMeApp {
         vr2 = new Restaurant("AnnaLena", "Vancouver");
         vr3 = new Restaurant("Chop Steakhouse & Bar", "Vancouver");
         vr4 = new Restaurant("The Vancouver Fish Company", "Vancouver");
-
-        City vancouver = new City("Vancouver");
-        vancouver.plusRestaurant(vr1);
-        vancouver.plusRestaurant(vr2);
-        vancouver.plusRestaurant(vr3);
-        vancouver.plusRestaurant(vr4);
     }
 
     private void initLondon() {
@@ -576,12 +570,6 @@ public class FeedMeApp {
         lr2 = new Restaurant("Alexander The Great", "London");
         lr3 = new Restaurant("Andy’s Greek Taverna", "London");
         lr4 = new Restaurant("Indian Room", "London");
-
-        City london = new City("London");
-        london.plusRestaurant(lr1);
-        london.plusRestaurant(lr2);
-        london.plusRestaurant(lr3);
-        london.plusRestaurant(lr4);
     }
 
 
@@ -590,12 +578,6 @@ public class FeedMeApp {
         nr2 = new Restaurant("Olio e Piu", "New York City");
         nr3 = new Restaurant("K Rico Steakhouse", "New York City");
         nr4 = new Restaurant("Royal 35 Steakhouse", "New York City");
-
-        City newYorkCity = new City("New York City");
-        newYorkCity.plusRestaurant(nr1);
-        newYorkCity.plusRestaurant(nr2);
-        newYorkCity.plusRestaurant(nr3);
-        newYorkCity.plusRestaurant(nr4);
     }
 
 

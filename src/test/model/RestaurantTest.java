@@ -20,6 +20,20 @@ public class RestaurantTest {
     }
 
     @Test
+    public void testLondonRestaurant() {
+        testRestaurant = new Restaurant("MyKitchen", "London");
+        assertEquals("MyKitchen", testRestaurant.getName());
+        assertEquals("London", testRestaurant.getLocation());
+    }
+
+    @Test
+    public void testNewYorkCityRestaurant() {
+        testRestaurant = new Restaurant("Brooklyn Taste", "New York City");
+        assertEquals("Brooklyn Taste", testRestaurant.getName());
+        assertEquals("New York City", testRestaurant.getLocation());
+    }
+
+    @Test
     public void testConstructorInvalidLocation() {
         testRestaurant = new Restaurant("Burger King", "Montreal");
         assertEquals("Burger King", testRestaurant.getName());
@@ -27,3 +41,4 @@ public class RestaurantTest {
     }
 
 }
+
