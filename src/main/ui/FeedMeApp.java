@@ -1,10 +1,8 @@
 package ui;
 
-import model.City;
 import model.Collection;
 import model.Restaurant;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FeedMeApp {
