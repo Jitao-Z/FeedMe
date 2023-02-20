@@ -5,6 +5,7 @@ import model.Restaurant;
 
 import java.util.Scanner;
 
+// FeedMe application
 public class FeedMeApp {
     private Scanner input;
     private Collection collection;
@@ -21,10 +22,15 @@ public class FeedMeApp {
     private Restaurant nr3;
     private Restaurant nr4;
 
+
+    // EFFECTS: runs the FeedMe application
     public FeedMeApp() {
         runFeedMe();
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: processes user input
     public void runFeedMe() {
         boolean shouldRepeat = true;
         String instruction = null;
@@ -47,6 +53,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: executes user instruction
     private void executeInstruction(String instruction) {
         if (instruction.equals("b")) {
             chooseCity();
@@ -56,6 +64,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: visits the current collection
     private void visitCollection() {
         if (collection.getListRestaurant().size() == 0) {
             System.out.println("Your collection is empty for now.");
@@ -70,6 +80,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: adjusts the current collection based on chosen decision
     private void changeCollection() {
         displayChoice();
         String decision = input.next();
@@ -87,25 +99,16 @@ public class FeedMeApp {
     }
 
 
-    // todo: need to repeat deleting things
+    // MODIFIES: this
+    // EFFECTS: deletes all the restaurants from the collection
     private void renewExistingCollection() {
         collection.getListRestaurant().removeAll(collection.getListRestaurant());
-//        ArrayList<Restaurant> restaurants = collection.getListRestaurant();
-//
-//        for (Restaurant restaurant : collection.getListRestaurant()) {
-//            collection.removeRestaurant(restaurant);
-//        }
     }
 
 
-
+    // MODIFIES: this
+    // EFFECTS: deletes the restaurant which user inputs its name
     private void deleteRestaurant() {
-        processDelete();
-    }
-
-
-    //todo: i don't know where the problem is
-    private void processDelete() {
         Scanner input = new Scanner(System.in);
         System.out.println("Type out the restaurant name below in order to delete that restaurant "
                 + "from your collection");
@@ -116,15 +119,14 @@ public class FeedMeApp {
                 collection.removeRestaurant(restaurant);
                 for (Restaurant r : collection.getListRestaurant()) {
                     System.out.println(r.getName());
-                    // here delete return
                 }
                 return;
             }
         }
-
     }
 
 
+    // EFFECTS: displays options of how to adjust the collection to user
     private void displayChoice() {
         System.out.println("\nDo you want to modify your collection?");
         System.out.println("\ty -> yes, I want to edit my collection");
@@ -133,6 +135,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: processes user instruction
     private void chooseCity() {
 
         displayCity();
@@ -155,6 +159,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: chooses one of the showing restaurants to view more details
     private void chooseNewYorkRestaurant() {
         displayNewYorkRestaurant();
         String instruction = input.next();
@@ -180,6 +186,9 @@ public class FeedMeApp {
         }
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showRoyalDetail() {
         System.out.println("Royal 35 Steakhouse is a stone’s throw away from iconic New York City "
                 + "landmark, The Empire State Building, combining the vibrant energy of New York City "
@@ -202,6 +211,9 @@ public class FeedMeApp {
         }
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showRicoDetail() {
         System.out.println("At K. Rico, the butchering and Dry-Aging of the steaks is done in-house, and our "
                 + "cuts are displayed right there at the table before guests place their orders, \nresulting "
@@ -223,6 +235,9 @@ public class FeedMeApp {
         }
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showOlioDetail() {
         System.out.println("An authentic trattoria, the restaurant specializes in classic Italian "
                 + "preparations, with a focus on house-made pastas "
@@ -245,6 +260,9 @@ public class FeedMeApp {
         }
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showBoucherieDetail() {
         System.out.println("BOUCHERIE is a traditional French brasserie and steakhouse, celebrating Joie de "
                 + "Vivre in the heart of West Village. \nThe restaurant prepares a menu of French classics and "
@@ -267,6 +285,8 @@ public class FeedMeApp {
         }
     }
 
+
+    // EFFECTS: shows all restaurants in New York City for user to choose
     private void displayNewYorkRestaurant() {
         System.out.println("\nHere are some hot restaurants, pick one to check more details!");
         System.out.println("b -> Boucherie West Village");
@@ -275,6 +295,9 @@ public class FeedMeApp {
         System.out.println("r -> Royal 35 Steakhouse");
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: chooses one of the showing restaurants to view more details
     private void chooseLondonRestaurant() {
         displayLondonRestaurant();
         String instruction = input.next();
@@ -300,6 +323,9 @@ public class FeedMeApp {
         }
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showIndianRoomDetail() {
         System.out.println("A modern, glass-fronted Indian on the burgeoning strip between The Bedford pub "
                 + "and Balham High Road, \nIndian Room has found itself something of a haven for couples. "
@@ -323,6 +349,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showAndyDetail() {
         System.out.println("Andy's Taverna restaurant in a corner of London that could be reasonably nicknamed "
                 + "Little Greek gem in Camden is a charming, \ncasual dining spot with all the cheer of the Greek "
@@ -348,6 +376,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showAlexanderDetail() {
         System.out.println("Located at the heart of Camden, offering delicious Greek and Mediterranean Cuisine, "
                 + "cooked on original charcoal grill. \nFor private, group and special "
@@ -369,6 +399,9 @@ public class FeedMeApp {
         }
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showLauncestonDetail() {
         System.out.println("Nestled in the quaint residential streets of Kensington, Launceston Place is an award "
                 + "winning hidden gem. Open for lunch Wednesday to Sunday and dinner Wednesday to Sunday, "
@@ -392,6 +425,7 @@ public class FeedMeApp {
     }
 
 
+    // EFFECTS: shows all restaurants in London for user to choose
     private void displayLondonRestaurant() {
         System.out.println("\nHere are some hot restaurants, pick one to check more details!");
         System.out.println("l -> Launceston Place");
@@ -400,6 +434,9 @@ public class FeedMeApp {
         System.out.println("i -> Indian Room");
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: chooses one of the showing restaurants to view more details
     private void chooseVancouverRestaurant() {
         displayVancouverRestaurant();
         String instruction = input.next();
@@ -425,6 +462,9 @@ public class FeedMeApp {
         }
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showFishCompanyDetail() {
         System.out.println("The Vancouver Fish Company is a seafood-focused Restaurant & Bar located on historic "
                 + "Granville Island in beautiful Vancouver, BC."
@@ -450,6 +490,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showSteakhouseDetail() {
         System.out.println("Our newest location is now open in Downtown Vancouver. Located on the east side of the "
                 + "Vancouver Convention Centre, within walking distance \nfrom Waterfront Station, our newest "
@@ -475,6 +517,9 @@ public class FeedMeApp {
         }
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showAnnaLenaDetail() {
         System.out.println("AnnaLena is a Tasting Menu focused restaurant located steps from Kitsilano Beach "
                 + "and a short walk from Downtown Vancouver, British Columbia."
@@ -500,6 +545,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: decides whether putting this specific restaurant into the collection
     private void showMikuDetail() {
         System.out.println("Situated along the Burrard Inlet next to the Vancouver landmark Canada Place, "
                 + "Miku Waterfront continues to deliver gourmet Aburi cuisine \npaired with its well known, "
@@ -521,6 +568,7 @@ public class FeedMeApp {
     }
 
 
+    // EFFECTS: shows all restaurants in Vancouver for user to choose
     private void displayVancouverRestaurant() {
         System.out.println("\nHere are some hot restaurants, pick one to check more details!");
         System.out.println("m -> Miku");
@@ -530,12 +578,14 @@ public class FeedMeApp {
     }
 
 
+    // EFFECTS: displays options of cities for user to choose
     private void displayCity() {
         System.out.println("\nChoose one city from:");
         System.out.println("v -> Vancouver");
         System.out.println("l -> London");
         System.out.println("n -> New York City");
     }
+
 
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
@@ -546,6 +596,8 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: initializes input and collection
     private void init() {
         input = new Scanner(System.in);
         collection = new Collection();
@@ -553,9 +605,11 @@ public class FeedMeApp {
         initVancouver();
         initLondon();
         initNewYork();
-
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: initializes all restaurants in Vancouver
     private void initVancouver() {
         vr1 = new Restaurant("Miku", "Vancouver");
         vr2 = new Restaurant("AnnaLena", "Vancouver");
@@ -563,6 +617,9 @@ public class FeedMeApp {
         vr4 = new Restaurant("The Vancouver Fish Company", "Vancouver");
     }
 
+
+    // MODIFIES: this
+    // EFFECTS: initializes all restaurants in London
     private void initLondon() {
         lr1 = new Restaurant("Launceston Place", "London");
         lr2 = new Restaurant("Alexander The Great", "London");
@@ -571,13 +628,14 @@ public class FeedMeApp {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: initializes all restaurants in New York City
     private void initNewYork() {
         nr1 = new Restaurant("Boucherie West Village", "New York City");
         nr2 = new Restaurant("Olio e Piu", "New York City");
         nr3 = new Restaurant("K Rico Steakhouse", "New York City");
         nr4 = new Restaurant("Royal 35 Steakhouse", "New York City");
     }
-
 
 }
 

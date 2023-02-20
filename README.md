@@ -23,8 +23,8 @@ for foodies like me to target some fantastic restaurants better.
 - As a user, I want to be able to see a brief introduction and some recommended dishes when I choose one restaurant to view more details
 - As a user, I want to be able to add a restaurant to my collection
 - As a user, I want to be able to remove a restaurant from my collection
-- As a user, I want to be able to select a restaurant in my collection and check its detail
-- As a user, I want to be able to click into the names of those recommended dishes and have a look at their pictures (probably also showing some ingredients)
+- As a user, I want to be able to select a restaurant in my collection and check its detail again
+- As a user, I want to be able to click on the names of those recommended dishes and have a look at their pictures (probably also showing the ingredients below the picture)
 
 
 
