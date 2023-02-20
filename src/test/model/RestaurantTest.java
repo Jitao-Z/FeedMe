@@ -19,4 +19,11 @@ public class RestaurantTest {
         assertEquals("Vancouver", testRestaurant.getLocation());
     }
 
+    @Test
+    public void testConstructorInvalidLocation() {
+        testRestaurant = new Restaurant("Burger King", "Montreal");
+        assertEquals("Burger King", testRestaurant.getName());
+        assertEquals("Invalid Location", testRestaurant.getLocation());
+    }
+
 }

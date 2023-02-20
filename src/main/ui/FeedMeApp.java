@@ -4,6 +4,7 @@ import model.City;
 import model.Collection;
 import model.Restaurant;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FeedMeApp {
@@ -70,6 +71,7 @@ public class FeedMeApp {
         }
     }
 
+
     private void changeCollection() {
         displayChoice();
         String decision = input.next();
@@ -79,17 +81,32 @@ public class FeedMeApp {
             deleteRestaurant();
         } else if (decision.equals("n")) {
             System.out.println("Going back to the main menu!");
+        } else if (decision.equals("r")) {
+            renewExistingCollection();
         } else {
             changeCollection();
         }
     }
 
 
-    //todo: i don't know where the problem is
+    // todo: need to repeat deleting things
+    private void renewExistingCollection() {
+        collection.getListRestaurant().removeAll(collection.getListRestaurant());
+//        ArrayList<Restaurant> restaurants = collection.getListRestaurant();
+//
+//        for (Restaurant restaurant : collection.getListRestaurant()) {
+//            collection.removeRestaurant(restaurant);
+//        }
+    }
+
+
+
     private void deleteRestaurant() {
         processDelete();
     }
 
+
+    //todo: i don't know where the problem is
     private void processDelete() {
         Scanner input = new Scanner(System.in);
         System.out.println("Type out the restaurant name below in order to delete that restaurant "
@@ -99,10 +116,10 @@ public class FeedMeApp {
         for (Restaurant restaurant : collection.getListRestaurant()) {
             if (restaurant.getName().equals(rn)) {
                 collection.removeRestaurant(restaurant);
-//                for (Restaurant r : collection.getListRestaurant()) {
-//                    System.out.println(r.getName());
-//                    return;
-//                }
+                for (Restaurant r : collection.getListRestaurant()) {
+                    System.out.println(r.getName());
+                    // here delete return
+                }
                 return;
             }
         }
@@ -112,11 +129,12 @@ public class FeedMeApp {
 
     private void displayChoice() {
         System.out.println("\nDo you want to modify your collection?");
-        System.out.println("\ty -> yes, I want to change my collection");
+        System.out.println("\ty -> yes, I want to edit my collection");
         System.out.println("\tn -> no, everything is all good");
+        System.out.println("\tr -> I want to renew my entire collection");
     }
 
-    //TODO: finishing one other cities
+
     private void chooseCity() {
 
         displayCity();
@@ -138,7 +156,7 @@ public class FeedMeApp {
         }
     }
 
-    //TODO
+
     private void chooseNewYorkRestaurant() {
         displayNewYorkRestaurant();
         String instruction = input.next();
@@ -291,7 +309,7 @@ public class FeedMeApp {
                 + "\na wonderful apricot chicken Kashmir among them."
                 + "\nPopular dishes: Goan Seafood Curry, Mumbai Fish Curry, Zinga Methi");
 
-        System.out.println("\nDo you want to add Indian room into collection?");
+        System.out.println("\nDo you want to add Indian Room into collection?");
         System.out.println("\ty -> add to collection");
         System.out.println("\tn -> not add to collection");
 
@@ -381,7 +399,7 @@ public class FeedMeApp {
         System.out.println("l -> Launceston Place");
         System.out.println("a -> Alexander The Great");
         System.out.println("g -> Andy’s Greek Taverna");
-        System.out.println("i -> Indian room");
+        System.out.println("i -> Indian Room");
     }
 
     private void chooseVancouverRestaurant() {
@@ -557,7 +575,7 @@ public class FeedMeApp {
         lr1 = new Restaurant("Launceston Place", "London");
         lr2 = new Restaurant("Alexander The Great", "London");
         lr3 = new Restaurant("Andy’s Greek Taverna", "London");
-        lr4 = new Restaurant("Indian room", "London");
+        lr4 = new Restaurant("Indian Room", "London");
 
         City london = new City("London");
         london.plusRestaurant(lr1);

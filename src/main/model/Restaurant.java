@@ -6,7 +6,11 @@ public class Restaurant {
 
     public Restaurant(String n, String l) {
         this.name = n;
-        this.location = l;
+        if (l.equals("Vancouver") || l.equals("London") || l.equals("New York City")) {
+            location = l;
+        } else {
+            location = "Invalid Location";
+        }
     }
 
     public String getName() {

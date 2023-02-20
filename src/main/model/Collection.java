@@ -17,7 +17,9 @@ public class Collection {
         this.listRestaurant.remove(r);
     }
 
+
     public ArrayList<Restaurant> getListRestaurant() {
         return this.listRestaurant;
     }
+
 }
