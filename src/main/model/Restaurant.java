@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a restaurant with its name and located city
-public class Restaurant {
+public class Restaurant implements Writable {
     private String name;             // restaurant name
     private String location;         // located city of the restaurant
 
@@ -28,6 +31,15 @@ public class Restaurant {
 
     public String getLocation() {
         return this.location;
+    }
+
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("location", location);
+        return json;
     }
 
 }

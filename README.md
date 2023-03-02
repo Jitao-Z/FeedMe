@@ -23,6 +23,8 @@ for foodies like me to target some fantastic restaurants better.
 - As a user, I want to be able to see a brief introduction and some recommended dishes when I choose one restaurant to view more details
 - As a user, I want to be able to add a restaurant to my collection
 - As a user, I want to be able to remove a restaurant from my collection
+- As a user, when I select the quit option from the main menu, I want to have the option to save my collection to file
+- As a user, when I start the application, I want to be given the option to load my previously saved collection from file
 - As a user, I want to be able to select a restaurant in my collection and check its detail again
 - As a user, I want to be able to click on the names of those recommended dishes and have a look at their pictures (probably also showing the ingredients below the picture)
 

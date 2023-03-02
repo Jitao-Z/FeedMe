@@ -1,0 +1,10 @@
+{"listRestaurant": [
+    {
+        "name": "KFC",
+        "location": "Vancouver"
+    },
+    {
+        "name": "Piazza Hut",
+        "location": "London"
+    }
+]}

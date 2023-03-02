@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 // Represents a collection that is consist of a list of restaurants
-public class Collection {
+public class Collection implements Writable {
     private ArrayList<Restaurant> listRestaurant;       // a list of restaurants
 
 
@@ -30,6 +34,26 @@ public class Collection {
 
     public ArrayList<Restaurant> getListRestaurant() {
         return this.listRestaurant;
+    }
+
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("listRestaurant", listRestaurantToJson());
+        return json;
+    }
+
+
+    // EFFECTS: returns restaurants in this collection as a JSON array
+    private JSONArray listRestaurantToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Restaurant r : listRestaurant) {
+            jsonArray.put(r.toJson());
+        }
+
+        return jsonArray;
     }
 
 }
