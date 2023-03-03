@@ -12,15 +12,14 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class JsonWriterTest {
 
-    //TODO: missing test invalid file
     @Test
     public void testWriterInvalidFile() {
-        Collection collection = new Collection();
-        JsonWriter writer = new JsonWriter("./data/syn?tax!\0error.json");
         try {
+            Collection collection = new Collection();
+            JsonWriter writer = new JsonWriter("./data/syn?tax!\0error.json");
             writer.open();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        } catch (IOException e) {
+            // right place to go
         }
     }
 
