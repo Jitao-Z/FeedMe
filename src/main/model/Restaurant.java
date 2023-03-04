@@ -11,8 +11,8 @@ public class Restaurant implements Writable {
 
     // REQUIRES: both name and location should have a non-zero length
     // EFFECTS: constructs a new restaurant;
-    //          set name to be name;
-    //          set location to be location if location is either "Vancouver", "London", or
+    //          set restaurant name to name;
+    //          set located city of the restaurant to location if location is either "Vancouver", "London", or
     //          "New York City"; otherwise, let location be "Invalid Location"
     public Restaurant(String name, String location) {
         this.name = name;

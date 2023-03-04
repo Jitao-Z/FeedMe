@@ -18,17 +18,17 @@ public class Collection implements Writable {
 
 
     // MODIFIES: this
-    // EFFECTS: add a restaurant r to the list
-    public void addRestaurant(Restaurant r) {
-        this.listRestaurant.add(r);
+    // EFFECTS: add a restaurant to the list
+    public void addRestaurant(Restaurant restaurant) {
+        this.listRestaurant.add(restaurant);
     }
 
 
     // REQUIRES: there is at least one restaurant existing in the list
     // MODIFIES: this
-    // EFFECTS: remove a restaurant r from the list
-    public void removeRestaurant(Restaurant r) {
-        this.listRestaurant.remove(r);
+    // EFFECTS: remove a restaurant from the list
+    public void removeRestaurant(Restaurant restaurant) {
+        this.listRestaurant.remove(restaurant);
     }
 
 

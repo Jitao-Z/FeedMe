@@ -1,6 +1,5 @@
 package ui;
 
-
 import java.io.FileNotFoundException;
 
 public class Main {
@@ -8,7 +7,7 @@ public class Main {
         try {
             new FeedMeApp();
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("Unable to run the application: file not found");;
         }
     }
 }
