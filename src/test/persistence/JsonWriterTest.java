@@ -18,6 +18,7 @@ public class JsonWriterTest {
             Collection collection = new Collection();
             JsonWriter writer = new JsonWriter("./data/syn?tax!\0error.json");
             writer.open();
+            fail("IOException should be thrown");
         } catch (IOException e) {
             // right place to go
         }

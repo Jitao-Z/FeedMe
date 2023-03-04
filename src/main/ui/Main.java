@@ -1,8 +1,14 @@
 package ui;
 
 
+import java.io.FileNotFoundException;
+
 public class Main {
     public static void main(String[] args) {
-        new FeedMeApp();
+        try {
+            new FeedMeApp();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

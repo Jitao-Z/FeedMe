@@ -2,11 +2,16 @@ package ui;
 
 import model.Collection;
 import model.Restaurant;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // FeedMe application
 public class FeedMeApp {
+    private static final String JSON_STORE = "./data/collection.json";
     private Scanner input;
     private Collection collection;
     private Restaurant vr1;
@@ -21,10 +26,14 @@ public class FeedMeApp {
     private Restaurant nr2;
     private Restaurant nr3;
     private Restaurant nr4;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
     // EFFECTS: runs the FeedMe application
-    public FeedMeApp() {
+    public FeedMeApp() throws FileNotFoundException {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runFeedMe();
     }
 
@@ -43,6 +52,7 @@ public class FeedMeApp {
             instruction = instruction.toLowerCase();
 
             if (instruction.equals("q")) {
+                quitApplication();
                 shouldRepeat = false;
             } else {
                 executeInstruction(instruction);
@@ -52,14 +62,61 @@ public class FeedMeApp {
         System.out.println("Thank you for using FeedMe!");
     }
 
+    // MODIFIES: this
+    // EFFECTS: processes user command
+    private void quitApplication() {
+        showQuitOptions();
+        String option = input.next();
+        option = option.toLowerCase();
+
+        if (option.equals("y")) {
+            saveCollection();
+        } else if (!(option.equals("y") || option.equals("n"))) {
+            quitApplication();
+        }
+    }
+
+    // EFFECTS: saves the collection to file
+    private void saveCollection() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(collection);
+            jsonWriter.close();
+            System.out.println("Successfully saved your collection to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write the collection to " + JSON_STORE);
+        }
+    }
+
+    // EFFECTS: displays quit options to user
+    private void showQuitOptions() {
+        System.out.println("\nDo you want to save your current collection?");
+        System.out.println("\ty -> yes");
+        System.out.println("\tn -> no");
+    }
+
 
     // MODIFIES: this
     // EFFECTS: executes user instruction
     private void executeInstruction(String instruction) {
         if (instruction.equals("b")) {
             chooseCity();
+        } else if (instruction.equals("l")) {
+            loadCollection();
         } else {
             visitCollection();
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads collection from file
+    private void loadCollection() {
+        try {
+            collection = jsonReader.read();
+            System.out.println("Loaded successfully from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+            ;
         }
     }
 
@@ -590,8 +647,9 @@ public class FeedMeApp {
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
         System.out.println("\nSelect from:");
-        System.out.println("b -> browsing restaurants around me");
-        System.out.println("c -> collection");
+        System.out.println("b -> browse restaurants around me");
+        System.out.println("c -> check my current collection");
+        System.out.println("l -> load the previously saved collection from file");
         System.out.println("q -> quit");
     }
 
