@@ -1,10 +1,4 @@
-{"listRestaurant": [
-    {
-        "name": "Royal 35 Steakhouse",
-        "location": "New York City"
-    },
-    {
-        "name": "K Rico Steakhouse",
-        "location": "New York City"
-    }
-]}
+{"listRestaurant": [{
+    "name": "K Rico Steakhouse",
+    "location": "New York City"
+}]}

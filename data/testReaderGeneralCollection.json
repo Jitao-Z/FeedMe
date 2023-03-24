@@ -1,10 +1,12 @@
 {"listRestaurant": [
   {
     "name": "Burger King",
-    "location": "London"
+    "location": "London",
+    "information": "this is good"
   },
   {
     "name": "Subway",
-    "location": "New York City"
+    "location": "New York City",
+    "information": "it should pass"
   }
 ]}

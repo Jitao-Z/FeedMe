@@ -1,10 +1,12 @@
 {"listRestaurant": [
     {
         "name": "KFC",
-        "location": "Vancouver"
+        "location": "Vancouver",
+        "information": "what's wrong"
     },
     {
         "name": "Piazza Hut",
-        "location": "London"
+        "location": "London",
+        "information": "perfect!"
     }
 ]}

@@ -61,7 +61,8 @@ public class JsonReader {
     private void addRestaurant(Collection collection, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String location = jsonObject.getString("location");
-        Restaurant restaurant = new Restaurant(name, location);
+        String information = jsonObject.getString("information");
+        Restaurant restaurant = new Restaurant(name, location, information);
         collection.addRestaurant(restaurant);
     }
     

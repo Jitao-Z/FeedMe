@@ -45,8 +45,8 @@ public class JsonWriterTest {
     public void testWriteGeneralCollection() {
         try {
             Collection collection = new Collection();
-            collection.addRestaurant(new Restaurant("KFC", "Vancouver"));
-            collection.addRestaurant(new Restaurant("Piazza Hut", "London"));
+            collection.addRestaurant(new Restaurant("KFC", "Vancouver", "what's wrong"));
+            collection.addRestaurant(new Restaurant("Piazza Hut", "London", "perfect!"));
             JsonWriter writer = new JsonWriter("./data/testWriteGeneralCollection.json");
             writer.open();
             writer.write(collection);

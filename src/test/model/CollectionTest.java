@@ -15,9 +15,9 @@ public class CollectionTest {
     @BeforeEach
     public void runBefore() {
         co1 = new Collection();
-        r1 = new Restaurant("KFC", "Vancouver");
-        r2 = new Restaurant("Piazza Hut", "Vancouver");
-        r3 = new Restaurant("Burger King", "Vancouver");
+        r1 = new Restaurant("KFC", "Vancouver", "Beautiful!");
+        r2 = new Restaurant("Piazza Hut", "Vancouver", "Fantastic!");
+        r3 = new Restaurant("Burger King", "Vancouver", "Fabulous");
     }
 
     @Test
