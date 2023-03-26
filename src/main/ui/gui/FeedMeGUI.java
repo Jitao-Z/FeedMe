@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 public class FeedMeGUI extends JFrame implements ActionListener {
     protected JPanel panel;
+    protected JPanel panel2;
     protected JButton chooseRes;
     protected JButton viewCollection;
     protected JButton load;
@@ -24,23 +25,21 @@ public class FeedMeGUI extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
 
+        collection = new Collection();
+
         panel = new JPanel();
-        panel.setLocation(250, 10);
-        panel.setSize(200, 100);
-        panel.setLayout(new GridLayout(0, 1));
-//        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         add(panel);
 
         SetAllOptions();
 
-        collection = new Collection();
-
         //add cover image
+        panel2 = new JPanel();
         ImageIcon imageIcon = new ImageIcon("images/foodicon.jpeg");
         JLabel imageLabel = new JLabel(imageIcon);
-//        imageLabel.setPreferredSize(new Dimension(50, 50));
-        panel.add(imageLabel);
-
+        imageLabel.setPreferredSize(new Dimension(480, 450));
+        panel2.add(imageLabel);
+        panel.add(panel2);
 
         setVisible(true);
         setResizable(true);
