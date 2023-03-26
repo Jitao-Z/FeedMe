@@ -1,13 +1,18 @@
 package ui.gui;
 
 import model.Collection;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
+// FeedMe application
 public class FeedMeGUI extends JFrame implements ActionListener {
     protected JPanel panel;
     protected JPanel panel2;
@@ -16,9 +21,13 @@ public class FeedMeGUI extends JFrame implements ActionListener {
     protected JButton load;
     protected JButton save;
     protected static Collection collection;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String JSON_STORE = "./data/collection.json";
 
 
-    public FeedMeGUI() {
+    // EFFECTS: runs the FeedMe application
+    public FeedMeGUI() throws FileNotFoundException {
         super("FeedMe");
         setSize(550, 650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,9 +40,9 @@ public class FeedMeGUI extends JFrame implements ActionListener {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         add(panel);
 
-        SetAllOptions();
+        setAllOptions();
 
-        //add cover image
+        // adds cover image
         panel2 = new JPanel();
         ImageIcon imageIcon = new ImageIcon("images/foodicon.jpeg");
         JLabel imageLabel = new JLabel(imageIcon);
@@ -43,10 +52,15 @@ public class FeedMeGUI extends JFrame implements ActionListener {
 
         setVisible(true);
         setResizable(true);
+
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
 
-    public void SetAllOptions() {
+    // MODIFIES: this
+    // EFFECTS: displays all the operating options on the main user interface
+    public void setAllOptions() {
         chooseRes = new JButton("Browse restaurants around me");
         chooseRes.setAlignmentX(Component.CENTER_ALIGNMENT);
         chooseRes.addActionListener(this);
@@ -71,7 +85,9 @@ public class FeedMeGUI extends JFrame implements ActionListener {
         panel.add(save);
     }
 
-    //TODO: a lot to do here
+
+    // MODIFIES: this
+    // EFFECTS: executes corresponding functionality when user clicks on a button
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == chooseRes) {
@@ -79,9 +95,43 @@ public class FeedMeGUI extends JFrame implements ActionListener {
         } else if (e.getSource() == viewCollection) {
             new CollectionGUI();
         } else if (e.getSource() == load) {
-            System.out.println("what is up");
+            loadFromFile();
         } else if (e.getSource() == save) {
-            System.out.println("now what?");
+            saveToFile();
         }
     }
+
+
+    // EFFECTS: saves the collection to file
+    public void saveToFile() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(collection);
+            jsonWriter.close();
+            JOptionPane.showMessageDialog(null, "Successfully saved your collection!",
+                    "Status", JOptionPane.INFORMATION_MESSAGE);
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Oops! Something went wrong when trying to save your collection!",
+                    "Status", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+
+    // EFFECTS: loads collection from file
+    public void loadFromFile() {
+        try {
+            collection = jsonReader.read();
+            JOptionPane.showMessageDialog(null,
+                    "Successfully loaded your previously saved collection!",
+                    "Status", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Oops! Failed to load your previously saved collection!",
+                    "Status", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+
 }
+

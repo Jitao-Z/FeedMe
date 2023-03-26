@@ -97,33 +97,33 @@ public class ShowVancouverResGUI extends JFrame implements ActionListener {
 
         if (vanResName == "Miku") {
             try {
-                URL imageUrl = new URL("https://assets.simpleviewinc.com/simple" +
-                        "view/image/upload/crm/vancouverbc/Oshi-Sushi-Salmon-Ebi-Saba-_" +
-                        "B2A26C40-A2D9-4EB1-84C72C97249F1A63_df0de4de-24c7-47f7-b4124e73a51698e3.jpg");
+                URL imageUrl = new URL("https://assets.simpleviewinc.com/simple"
+                        + "view/image/upload/crm/vancouverbc/Oshi-Sushi-Salmon-Ebi-Saba-_"
+                        + "B2A26C40-A2D9-4EB1-84C72C97249F1A63_df0de4de-24c7-47f7-b4124e73a51698e3.jpg");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         } else if (vanResName == "AnnaLena") {
             try {
-                URL imageUrl = new URL("https://canadas100best.com/wp-content/uploads/2018/04/" +
-                        "AnnaLena-Feature-Photo.jpg");
+                URL imageUrl = new URL("https://canadas100best.com/wp-content/uploads/2018/04/"
+                        + "AnnaLena-Feature-Photo.jpg");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         } else if (vanResName == "Chop Steakhouse & Bar") {
             try {
-                URL imageUrl = new URL("https://www.vmcdn.ca/f/files/via/images/food" +
-                        "/chop-steakhouse-bar-restaurant-vancouver-bc.jpg;w=1000;h=667;mode=crop");
+                URL imageUrl = new URL("https://www.vmcdn.ca/f/files/via/images/food"
+                        + "/chop-steakhouse-bar-restaurant-vancouver-bc.jpg;w=1000;h=667;mode=crop");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         } else if (vanResName == "The Vancouver Fish Company") {
             try {
-                URL imageUrl = new URL("https://media-cdn.tripadvisor.com/media" +
-                        "/photo-s/1c/86/d6/e6/the-vancouver-fish-company.jpg");
+                URL imageUrl = new URL("https://media-cdn.tripadvisor.com/media"
+                        + "/photo-s/1c/86/d6/e6/the-vancouver-fish-company.jpg");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();

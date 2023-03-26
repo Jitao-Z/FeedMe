@@ -46,7 +46,7 @@ public class CitySelectionGUI extends JFrame implements ActionListener {
         } else if (cityName == "London") {
             new ShowLondonResGUI();
         } else if (cityName == "New York City") {
-            new ShowNYCResGUI();
+            new ShowNewYorkResGUI();
         }
     }
 }

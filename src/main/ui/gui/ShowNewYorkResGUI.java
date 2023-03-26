@@ -11,25 +11,25 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
 
-public class ShowNYCResGUI extends JFrame implements ActionListener {
+public class ShowNewYorkResGUI extends JFrame implements ActionListener {
     protected JTable table;
     protected JPanel buttonsPanel;
     protected JButton viewPicture;
     protected JButton add;
 
-    public ShowNYCResGUI() {
+    public ShowNewYorkResGUI() {
         super("New York City");
         setSize(550, 650);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(30, 30, 30, 30));
 
-        constructNYCRestTable();
-        constructNYCButtons();
+        constructNewYorkRestTable();
+        constructNewYorkButtons();
 
         setVisible(true);
     }
 
-    public void constructNYCRestTable() {
+    public void constructNewYorkRestTable() {
         DefaultTableModel newYorkResTable = new DefaultTableModel(
                 new Object[][]{{"Boucherie West Village", "$$$"}, {"Olio e Piu", "$$$"},
                         {"K Rico Steakhouse", "$$$$"}, {"Royal 35 Steakhouse", "$$$$"}},
@@ -39,7 +39,7 @@ public class ShowNYCResGUI extends JFrame implements ActionListener {
         add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
-    public void constructNYCButtons() {
+    public void constructNewYorkButtons() {
         buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
         viewPicture = new JButton("Show picture");
@@ -100,24 +100,24 @@ public class ShowNYCResGUI extends JFrame implements ActionListener {
             }
         } else if (newYorkResName == "Olio e Piu") {
             try {
-                URL imageUrl = new URL("https://media-cdn.tripadv" +
-                        "isor.com/media/photo-s/1a/1b/15/3a/olio-e-piu.jpg");
+                URL imageUrl = new URL("https://media-cdn.tripadv"
+                        + "isor.com/media/photo-s/1a/1b/15/3a/olio-e-piu.jpg");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         } else if (newYorkResName == "K Rico Steakhouse") {
             try {
-                URL imageUrl = new URL("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/8f/" +
-                        "14/c8/pulpo-a-la-parilla-marinated.jpg?w=800&h=600&s=1");
+                URL imageUrl = new URL("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/8f/"
+                        + "14/c8/pulpo-a-la-parilla-marinated.jpg?w=800&h=600&s=1");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         } else if (newYorkResName == "Royal 35 Steakhouse") {
             try {
-                URL imageUrl = new URL("https://s3-media0.fl.yelpcdn.com/bph" +
-                        "oto/QzhXzd4vxHMuh2vdM0azpw/348s.jpg");
+                URL imageUrl = new URL("https://s3-media0.fl.yelpcdn.com/bph"
+                        + "oto/QzhXzd4vxHMuh2vdM0azpw/348s.jpg");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();

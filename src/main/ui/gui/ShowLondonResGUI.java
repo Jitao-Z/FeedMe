@@ -101,24 +101,24 @@ public class ShowLondonResGUI extends JFrame implements ActionListener {
             }
         } else if (lonResName == "Alexander The Great") {
             try {
-                URL imageUrl = new URL("https://dynamic-media-cdn.tripadvisor." +
-                        "com/media/photo-o/1a/13/ac/d1/cold-meze-starters-selection.jpg?w=800&h=600&s=1");
+                URL imageUrl = new URL("https://dynamic-media-cdn.tripadvisor."
+                        + "com/media/photo-o/1a/13/ac/d1/cold-meze-starters-selection.jpg?w=800&h=600&s=1");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         } else if (lonResName == "Andy’s Greek Taverna") {
             try {
-                URL imageUrl = new URL("https://res.cloudinary.com/tf-lab/image/upload/restaurant/2dcca421-" +
-                        "a20e-4788-ae1c-24471f3e3adb/c07eb343-1848-45a6-bc6d-ce15e62b65e3.jpg");
+                URL imageUrl = new URL("https://res.cloudinary.com/tf-lab/image/upload/restaurant/2dcca421-"
+                        + "a20e-4788-ae1c-24471f3e3adb/c07eb343-1848-45a6-bc6d-ce15e62b65e3.jpg");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         } else if (lonResName == "Indian Room") {
             try {
-                URL imageUrl = new URL("https://media-cdn.tripadvisor.com/media/" +
-                        "photo-s/0e/0e/37/d1/lamb-chop-kasundi.jpg");
+                URL imageUrl = new URL("https://media-cdn.tripadvisor.com/media/"
+                        + "photo-s/0e/0e/37/d1/lamb-chop-kasundi.jpg");
                 imageIcon = new ImageIcon(imageUrl);
             } catch (IOException ex) {
                 ex.printStackTrace();

@@ -68,14 +68,14 @@ public class CollectionGUI extends JFrame implements ActionListener {
         } // if have time, do the last case when we select nothing and press the button
     }
 
-    public void deleteRestaurant(int row){
+    public void deleteRestaurant(int row) {
         collectionTableModel.removeRow(row);
         JOptionPane.showMessageDialog(null,
-                FeedMeGUI.collection.getListRestaurant().get(row).getName() +
-                        " has been removed from your collection!", "Status", JOptionPane.INFORMATION_MESSAGE);
+                FeedMeGUI.collection.getListRestaurant().get(row).getName()
+                        + " has been removed from your collection!", "Status", JOptionPane.INFORMATION_MESSAGE);
         FeedMeGUI.collection.getListRestaurant().remove(row);
     }
-    
+
     public void showMoreDetails(int row) {
         JFrame myFrame = new JFrame("Detail");
         myFrame.setSize(510, 280);
@@ -87,7 +87,6 @@ public class CollectionGUI extends JFrame implements ActionListener {
 
         myFrame.setVisible(true);
     }
-
 
 
 }
