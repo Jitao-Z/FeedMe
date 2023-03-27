@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+// The collection GUI
 public class CollectionGUI extends JFrame implements ActionListener {
     protected DefaultTableModel collectionTableModel;
     protected JTable table;
@@ -18,6 +18,7 @@ public class CollectionGUI extends JFrame implements ActionListener {
     protected JButton delete;
 
 
+    // EFFECTS: constructs the collection GUI
     public CollectionGUI() {
         super("My Collection");
         setSize(550, 650);
@@ -31,6 +32,8 @@ public class CollectionGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // MODIFIES: this
+    // EFFECTS: creates a table for collection, and adds that table to the collection GUI
     public void constructCollectionTale() {
         String[] columnNames = {"Restaurant name", "City"};
         collectionTableModel = new DefaultTableModel(columnNames, 0);
@@ -42,6 +45,8 @@ public class CollectionGUI extends JFrame implements ActionListener {
         add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
+    // MODIFIES: this
+    // EFFECTS： displays all the operating options on the collection GUI
     public void constructCollectionButtons() {
         buttonsPanel = new JPanel(new GridLayout(2, 1));
 
@@ -56,7 +61,8 @@ public class CollectionGUI extends JFrame implements ActionListener {
         add(buttonsPanel, BorderLayout.EAST);
     }
 
-    //TODO: two functionalities to do, if not select any button, there is error
+
+    // EFFECTS: executes corresponding functionality when user selects a row and clicks on a button
     @Override
     public void actionPerformed(ActionEvent e) {
         int row = table.getSelectedRow();
@@ -65,9 +71,11 @@ public class CollectionGUI extends JFrame implements ActionListener {
             showMoreDetails(row);
         } else if (e.getSource() == delete) {
             deleteRestaurant(row);
-        } // if have time, do the last case when we select nothing and press the button
+        }
     }
 
+    // MODIFIES: this
+    // EFFECTS: removes a restaurant from both the collection and the collection GUI
     public void deleteRestaurant(int row) {
         collectionTableModel.removeRow(row);
         JOptionPane.showMessageDialog(null,
@@ -76,6 +84,7 @@ public class CollectionGUI extends JFrame implements ActionListener {
         FeedMeGUI.collection.getListRestaurant().remove(row);
     }
 
+    // EFFECTS: shows more information of the selected restaurant
     public void showMoreDetails(int row) {
         JFrame myFrame = new JFrame("Detail");
         myFrame.setSize(510, 280);

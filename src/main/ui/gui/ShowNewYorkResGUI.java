@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+// The NYC restaurant selection GUI
 public class ShowNewYorkResGUI extends JFrame implements ActionListener {
     protected JTable table;
     protected JPanel buttonsPanel;
@@ -18,6 +19,7 @@ public class ShowNewYorkResGUI extends JFrame implements ActionListener {
     protected JButton add;
     protected ImageIcon imageIcon = null;
 
+    // EFFECTS: constructs the NYC restaurant selection GUI
     public ShowNewYorkResGUI() {
         super("New York City");
         setSize(550, 650);
@@ -30,6 +32,9 @@ public class ShowNewYorkResGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // MODIFIES: this
+    // EFFECTS: constructs a table listing all the selectable NYC restaurants in it, and
+    //          adds it to the NYC restaurant selection GUI
     public void constructNewYorkRestTable() {
         DefaultTableModel newYorkResTable = new DefaultTableModel(
                 new Object[][]{{"Boucherie West Village", "$$$"}, {"Olio e Piu", "$$$"},
@@ -40,6 +45,8 @@ public class ShowNewYorkResGUI extends JFrame implements ActionListener {
         add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
+    // MODIFIES: this
+    // EFFECTS: displays all the operating options on the NYC restaurant selection GUI
     public void constructNewYorkButtons() {
         buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
@@ -54,6 +61,7 @@ public class ShowNewYorkResGUI extends JFrame implements ActionListener {
         add(buttonsPanel, BorderLayout.SOUTH);
     }
 
+    // EFFECTS: executes corresponding functionality when user selects a row and clicks on a button
     @Override
     public void actionPerformed(ActionEvent e) {
         int row = table.getSelectedRow();
@@ -66,6 +74,7 @@ public class ShowNewYorkResGUI extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: adds the selected restaurants into the collection
     public void addToCollection(String newYorkResName) {
         if (newYorkResName.equals("Boucherie West Village")) {
             Restaurant nr1 = new Restaurant("Boucherie West Village", "New York City",
@@ -89,6 +98,7 @@ public class ShowNewYorkResGUI extends JFrame implements ActionListener {
                 "Status", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    // EFFECTS: shows the image of the selected restaurant
     public void showPicture(String newYorkResName) {
         if (newYorkResName.equals("Boucherie West Village")) {
             changeToImageIcon("https://s3-media0.fl.yelpcdn.com/bphoto/zMfL8_qwipObZJp6qMLVGg/l.jpg");
@@ -110,6 +120,7 @@ public class ShowNewYorkResGUI extends JFrame implements ActionListener {
         imageFrame.setVisible(true);
     }
 
+    // EFFECTS: puts a url embedded into a ImageIcon
     private ImageIcon changeToImageIcon(String url) {
         URL imageUrl = null;
         try {

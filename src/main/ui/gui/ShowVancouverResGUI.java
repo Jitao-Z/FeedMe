@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
+// The Vancouver restaurant selection GUI
 public class ShowVancouverResGUI extends JFrame implements ActionListener {
     protected JTable table;
     protected JPanel buttonsPanel;
@@ -20,6 +20,7 @@ public class ShowVancouverResGUI extends JFrame implements ActionListener {
     protected ImageIcon imageIcon = null;
 
 
+    // EFFECTS: constructs the Vancouver restaurant selection GUI
     public ShowVancouverResGUI() {
         super("Vancouver");
         setSize(550, 650);
@@ -32,6 +33,9 @@ public class ShowVancouverResGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // MODIFIES: this
+    // EFFECTS: constructs a table listing all the selectable Vancouver restaurants in it, and
+    //          adds it to the Vancouver restaurant selection GUI
     public void constructVancouverRestTable() {
         DefaultTableModel vanResTable = new DefaultTableModel(
                 new Object[][]{{"Miku", "$$$$"}, {"AnnaLena", "$$$$"}, {"Chop Steakhouse & Bar", "$$$"},
@@ -42,6 +46,8 @@ public class ShowVancouverResGUI extends JFrame implements ActionListener {
         add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
+    // MODIFIES: this
+    // EFFECTS: displays all the operating options on the Vancouver restaurant selection GUI
     public void constructVancouverButtons() {
         buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
@@ -58,6 +64,7 @@ public class ShowVancouverResGUI extends JFrame implements ActionListener {
     }
 
 
+    // EFFECTS: executes corresponding functionality when user selects a row and clicks on a button
     @Override
     public void actionPerformed(ActionEvent e) {
         int row = table.getSelectedRow();
@@ -70,6 +77,7 @@ public class ShowVancouverResGUI extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: adds the selected restaurants into the collection
     public void addToCollection(String vanResName) {
         if (vanResName.equals("Miku")) {
             Restaurant vr1 = new Restaurant("Miku", "Vancouver",
@@ -93,6 +101,7 @@ public class ShowVancouverResGUI extends JFrame implements ActionListener {
                 "Status", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    // EFFECTS: shows the image of the selected restaurant
     public void showPicture(String vanResName) {
         if (vanResName.equals("Miku")) {
             changeToImageIcon("https://assets.simpleviewinc.com/simpleview/image/upload/crm/vancouverbc"
@@ -104,7 +113,8 @@ public class ShowVancouverResGUI extends JFrame implements ActionListener {
             changeToImageIcon("https://www.vmcdn.ca/f/files/via/images/food/chop-ste"
                     + "akhouse-bar-restaurant-vancouver-bc.jpg;w=1000;h=667;mode=crop");
         } else if (vanResName.equals("The Vancouver Fish Company")) {
-            changeToImageIcon("https://media-cdn.tripadvisor.com/media/photo-s/0e/0e/37/d1/lamb-chop-kasundi.jpg");
+            changeToImageIcon("https://static.wixstatic.com/media/41dd26_36fb5db3b8514daaae86447a08b9"
+                    + "471d~mv2.jpeg/v1/fit/w_1019,h_679,q_88/41dd26_36fb5db3b8514daaae86447a08b9471d~mv2.jpeg");
         }
 
         JFrame imageFrame = new JFrame("Image Preview");   // create a new JFrame to display the image
@@ -116,6 +126,7 @@ public class ShowVancouverResGUI extends JFrame implements ActionListener {
         imageFrame.setVisible(true);
     }
 
+    // EFFECTS: puts a url embedded into a ImageIcon
     private ImageIcon changeToImageIcon(String url) {
         URL imageUrl = null;
         try {

@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+// The London restaurant selection GUI
 public class ShowLondonResGUI extends JFrame implements ActionListener {
     protected JTable table;
     protected JPanel buttonsPanel;
@@ -18,6 +19,7 @@ public class ShowLondonResGUI extends JFrame implements ActionListener {
     protected JButton add;
     protected ImageIcon imageIcon = null;
 
+    // EFFECTS: constructs the London restaurant selection GUI
     public ShowLondonResGUI() {
         super("London");
         setSize(550, 650);
@@ -30,6 +32,9 @@ public class ShowLondonResGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // MODIFIES: this
+    // EFFECTS: constructs a table listing all the selectable London restaurants in it, and
+    //          adds it to the London restaurant selection GUI
     public void constructLondonRestTable() {
         DefaultTableModel lonResTable = new DefaultTableModel(
                 new Object[][]{{"Launceston Place", "$$$$"}, {"Alexander The Great", "$$$$"},
@@ -40,6 +45,8 @@ public class ShowLondonResGUI extends JFrame implements ActionListener {
         add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
+    // MODIFIES: this
+    // EFFECTS: displays all the operating options on the London restaurant selection GUI
     public void constructLondonButtons() {
         buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
@@ -55,6 +62,7 @@ public class ShowLondonResGUI extends JFrame implements ActionListener {
 
     }
 
+    // EFFECTS: executes corresponding functionality when user selects a row and clicks on a button
     @Override
     public void actionPerformed(ActionEvent e) {
         int row = table.getSelectedRow();
@@ -67,6 +75,7 @@ public class ShowLondonResGUI extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: adds the selected restaurants into the collection
     public void addToCollection(String lonResName) {
         if (lonResName.equals("Launceston Place")) {
             Restaurant lr1 = new Restaurant("Launceston Place", "London",
@@ -90,6 +99,7 @@ public class ShowLondonResGUI extends JFrame implements ActionListener {
                 "Status", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    // EFFECTS: shows the image of the selected restaurant
     public void showPicture(String lonResName) {
         if (lonResName.equals("Launceston Place")) {
             changeToImageIcon("https://media.timeout.com/images/103140590/image.jpg");
@@ -100,7 +110,7 @@ public class ShowLondonResGUI extends JFrame implements ActionListener {
             changeToImageIcon("https://res.cloudinary.com/tf-lab/image/upload/restaurant/2dc"
                     + "ca421-a20e-4788-ae1c-24471f3e3adb/c07eb343-1848-45a6-bc6d-ce15e62b65e3.jpg");
         } else if (lonResName.equals("Indian Room")) {
-            changeToImageIcon("https://media-cdn.tripadvisor.com/media/photo-s/0e/0e/37/d1/lamb-chop-kasundi.jpg");
+            changeToImageIcon("https://media-cdn.tripadvisor.com/media/photo-s/10/a0/1a/c7/lamb-chops.jpg");
         }
 
         JFrame imageFrame = new JFrame("Image Preview");   // create a new JFrame to display the image
@@ -113,6 +123,7 @@ public class ShowLondonResGUI extends JFrame implements ActionListener {
     }
 
 
+    // EFFECTS: puts a url embedded into a ImageIcon
     private ImageIcon changeToImageIcon(String url) {
         URL imageUrl = null;
         try {

@@ -86,7 +86,6 @@ public class FeedMeGUI extends JFrame implements ActionListener {
     }
 
 
-    // MODIFIES: this
     // EFFECTS: executes corresponding functionality when user clicks on a button
     @Override
     public void actionPerformed(ActionEvent e) {

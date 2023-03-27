@@ -6,10 +6,12 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// The city selection GUI
 public class CitySelectionGUI extends JFrame implements ActionListener {
     protected JTable table;
     protected JButton proceed;
 
+    // EFFECTS: constructs the city selection GUI
     public CitySelectionGUI() {
         super("City");
         setSize(550, 650);
@@ -26,6 +28,9 @@ public class CitySelectionGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // MODIFIES: this
+    // EFFECTS: constructs a table listing all selectable cities, and
+    //          adds it to the city selection GUI
     public void constructCityTable() {
         DefaultTableModel cityTable = new DefaultTableModel(
                 new Object[][]{{"Vancouver"}, {"London"}, {"New York City"}},
@@ -36,16 +41,17 @@ public class CitySelectionGUI extends JFrame implements ActionListener {
     }
 
 
+    // EFFECTS: executes corresponding functionality when user selects a row and clicks on a button
     @Override
     public void actionPerformed(ActionEvent e) {
         int row = table.getSelectedRow();
         String cityName = table.getValueAt(row, 0).toString();
 
-        if (cityName == "Vancouver") {
+        if (cityName.equals("Vancouver")) {
             new ShowVancouverResGUI();
-        } else if (cityName == "London") {
+        } else if (cityName.equals("London")) {
             new ShowLondonResGUI();
-        } else if (cityName == "New York City") {
+        } else if (cityName.equals("New York City")) {
             new ShowNewYorkResGUI();
         }
     }
