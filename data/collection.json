@@ -1,5 +1,12 @@
-{"listRestaurant": [{
-    "name": "The Vancouver Fish Company",
-    "location": "Vancouver",
-    "information": "Popular dishes: Fresh Oysters, Tomahawk, Brant Lake Wagyu, Tuna Poke Bowl"
-}]}
+{"listRestaurant": [
+    {
+        "name": "Launceston Place",
+        "location": "London",
+        "information": "Popular dishes: Pork, Cheese Cart, Cod"
+    },
+    {
+        "name": "Andy\u2019s Greek Taverna",
+        "location": "London",
+        "information": "Popular dishes: Lamp, Mossaka"
+    }
+]}

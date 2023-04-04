@@ -1,5 +1,7 @@
 package ui.gui;
 
+import model.Event;
+import model.EventLog;
 import model.Restaurant;
 
 import javax.swing.*;
@@ -81,7 +83,9 @@ public class CollectionGUI extends JFrame implements ActionListener {
         JOptionPane.showMessageDialog(null,
                 FeedMeGUI.collection.getListRestaurant().get(row).getName()
                         + " has been removed from your collection!", "Status", JOptionPane.INFORMATION_MESSAGE);
-        FeedMeGUI.collection.getListRestaurant().remove(row);
+        Restaurant restaurant = FeedMeGUI.collection.getListRestaurant().get(row);
+        FeedMeGUI.collection.removeRestaurant(restaurant);              // in order to print "delete" in log
+//        FeedMeGUI.collection.getListRestaurant().remove(row);         // A better way to delete res from collection
     }
 
     // EFFECTS: shows more information of the selected restaurant

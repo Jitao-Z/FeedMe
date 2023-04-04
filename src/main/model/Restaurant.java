@@ -36,6 +36,8 @@ public class Restaurant implements Writable {
     }
 
     public String getInformation() {
+        EventLog.getInstance().logEvent(
+                new Event("More information of " + name + " was shown"));
         return this.information;
     }
 

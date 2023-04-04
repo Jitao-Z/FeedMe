@@ -1,19 +1,20 @@
 package ui.gui;
 
 import model.Collection;
+import model.Event;
+import model.EventLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 // FeedMe application
-public class FeedMeGUI extends JFrame implements ActionListener {
+public class FeedMeGUI extends JFrame implements ActionListener, WindowListener {
     protected JPanel panel;
     protected JPanel panel2;
     protected JButton chooseRes;
@@ -41,6 +42,9 @@ public class FeedMeGUI extends JFrame implements ActionListener {
         add(panel);
 
         setAllOptions();
+
+        // prints log when quitting the app
+        addWindowListener(this);
 
         // adds cover image
         panel2 = new JPanel();
@@ -131,6 +135,44 @@ public class FeedMeGUI extends JFrame implements ActionListener {
         }
     }
 
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        System.out.println("Below is the log:");
+        for (Event next : EventLog.getInstance()) {
+            System.out.println(next.toString());
+        }
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
+    }
 
 }
 

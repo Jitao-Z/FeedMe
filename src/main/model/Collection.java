@@ -21,6 +21,7 @@ public class Collection implements Writable {
     // EFFECTS: add a restaurant to the list
     public void addRestaurant(Restaurant restaurant) {
         this.listRestaurant.add(restaurant);
+        EventLog.getInstance().logEvent(new Event(restaurant.getName() + " was added to collection."));
     }
 
 
@@ -29,6 +30,7 @@ public class Collection implements Writable {
     // EFFECTS: remove a restaurant from the list
     public void removeRestaurant(Restaurant restaurant) {
         this.listRestaurant.remove(restaurant);
+        EventLog.getInstance().logEvent(new Event(restaurant.getName() + " was removed from collection."));
     }
 
 
