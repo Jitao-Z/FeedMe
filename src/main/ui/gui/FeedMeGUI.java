@@ -141,6 +141,7 @@ public class FeedMeGUI extends JFrame implements ActionListener, WindowListener 
 
     }
 
+    // EFFECTS: prints log to the console
     @Override
     public void windowClosing(WindowEvent e) {
         System.out.println("Below is the log:");
