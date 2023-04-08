@@ -4,7 +4,7 @@ An application that helps everyone find their restaurants of belonging!
 ## Proposal
 ### What will this application do?
 This application is called *FeedMe* and has some features similar to *Yelp*. So when we select a location from the 
-app, it will pop out **five** recommended restaurants for us to consider. We will be able to see a brief introduction 
+app, it will pop out **four** recommended restaurants for us to consider. We will be able to see a brief introduction 
 for each restaurant (e.g. what type of food, the average cost per customer) and also some popular dishes in it.
 
 ### Who will use it?
@@ -61,6 +61,22 @@ Miku was removed from collection
 
 Wed Apr 05 19:08:22 PDT 2023
 More information of The Vancouver Fish Company was shown
+
+## Phase 4: Task 3
+One of the most significant refactoring I would do is to change the data structure of my Collection class from ArrayList to HashMap. 
+Since I am using ArrayList, I have to write a lot of foreach loops and if statements to print all the restaurants from my collection or to retrieve one restaurant, 
+which is time-consuming and requires a lot of work. By using HashMap, I can replace those loops with a few lines of code.
+
+Another thing I noticed is that ShowLondonResGUI, ShowNewYorkResGUI, and ShowVancouverResGUI these three classes are reasonably similar. 
+It would be much better if I could create a superclass and let these three extend it so that they can share some common functionalities. 
+This can also reduce so much repetitive code in my current software.
+
+Last but not least, one more thing that makes me uneasy is the Restaurant's information (a parameter of Restaurant). 
+Since I do not allow my users to create their restaurants in my app, I have to set up some fixed ones for them to choose from. 
+But, instead of a sentence, the information parameter of each of my Restaurants is usually like a paragraph. 
+At first, I found that having such a long paragraph text in my Restaurants' instantiation was ugly, especially since I instantiated them in some of my GUI classes; 
+therefore, I had to cut the paragraph into a single sentence to make my code feel not so tedious. 
+Now when I think back, I should put them in my Main class or just let users be able to create their own restaurants. Either approach will make my code more organized.
 
 
 
