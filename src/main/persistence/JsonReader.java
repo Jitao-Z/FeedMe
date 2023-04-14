@@ -67,6 +67,3 @@ public class JsonReader {
     }
     
 }
-
-// Claim: The heavy amount of the above code is referred to the
-//        sample code that is given with the phase 2 project
